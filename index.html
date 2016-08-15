@@ -1,12 +1,98 @@
 <!doctype html>
 
+
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
 </head>
 
+<link rel="stylesheet" type="text/css" href="music.css">
+
+<header>
+	<nav class="nav-bar">
+		<ul style="list-style-type:none">			
+			<li>View Music</li>
+			<li><a href="addmusic.html">Add Music</a></li>	
+			<li ><a href="profile.html">Profile</a></li>
+		</ul>
+	</nav>
+</header>
 <body>
+	<article class="article-one">
+		<section>Song length:</section>
+			<div class="range-slider" data-slider="27" data-options="display_selector:#sliderOutput1;">
+          		<span class="range-slider-handle" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="27" style="transform: translateX(162.62px);"></span>
+          		<span class="range-slider-active-segment" style="width: 27%;"></span>
+        	</div>
+		<section>Artist:</section>
+			<div class="dropdown2">
+				<button class="dropbtn2">Option</button>
+				<div class="dropdown-content2">
+					<a>1</a>
+					<a>2</a>
+					<a>3</a>
+				</div>
+			</div>	
+		<section>Album:</section>
+			<div class="dropdown2">
+				<button class="dropbtn2">Option</button>
+				<div class="dropdown-content2">
+					<a>1</a>
+					<a>2</a>
+					<a>3</a>
+				</div>
+			</div>
+		<section>Genre:</section>
+		
+				<ul class="checkbox-grid">
+					<li><input type="checkbox" name="Rock" value="">Rock</li>
+					<li><input type="checkbox" name="Jazz" value="">Jazz</li>
+					<li><input type="checkbox" name="Blues" value="">Blues</li>
+					<li><input type="checkbox" name="Classical" value="">Classical</li>
+					<li><input type="checkbox" name="Hip-Hop" value="">Hip-Hop</li>
+					<li><input type="checkbox" name="Pop" value="">Pop</li>
+				</ul>
+		
+		<button class="filter-btn" type="#">Filter</button>
+	</article>
+
+	<article class="song-info">
+		<section>
+			<h2 class="song-name">Song Title</h2>
+				<ul class="songs">
+					<li>Artist Name</li>
+					<li>Album Name</li>
+					<li>Genre</li>
+				</ul>
+		</section>
+		<section>
+			<h2 class="song-name">Song Title</h2>
+				<ul class="songs">
+					<li>Artist Name</li>
+					<li>Album Name</li>
+					<li>Genre</li>
+				</ul>
+		</section>
+		<section>
+			<h2 class="song-name">Song Title</h2>
+				<ul class="songs">
+					<li>Artist Name</li>
+					<li>Album Name</li>
+					<li>Genre</li>
+				</ul>
+		</section>
+		<section>
+			<h2 class="song-name">Song Title</h2>
+				<ul class="songs">
+					<li>Artist Name</li>
+					<li>Album Name</li>
+					<li>Genre</li>
+				</ul>
+		</section>
+
+	</article>
 
 
 </body>
