@@ -1,25 +1,25 @@
-<!doctype html>
-
-
-
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Music History</title>
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
 </head>
-
-<link rel="stylesheet" type="text/css" href="music.css">
-
-<header>
-	<nav class="nav-bar">
-		<ul style="list-style-type:none">			
-			<li>View Music</li>
-			<li><a href="addmusic.html">Add Music</a></li>	
-			<li ><a href="profile.html">Profile</a></li>
-		</ul>
-	</nav>
-</header>
 <body>
+<nav class="nav-bar">
+<ul>
+  <li><a href="#" id="link-home">Home</a></li>
+  <li><a href="#" id="link-list">List</a></li>
+  <li><a href="#" id="link-add">Add</a></li>
+</ul>
+</nav>
+
+<section id="home-view">
+  Home
+</section>
+
+<div class="hidden" id="list-view">
 	<article class="article-one">
 		<section>Song length:</section>
 			<div class="range-slider" data-slider="27" data-options="display_selector:#sliderOutput1;">
@@ -27,25 +27,18 @@
           		<span class="range-slider-active-segment" style="width: 27%;"></span>
         	</div>
 		<section>Artist:</section>
-			<div class="dropdown2">
-				<button class="dropbtn2">Option</button>
-				<div class="dropdown-content2">
-					<a>1</a>
-					<a>2</a>
-					<a>3</a>
-				</div>
-			</div>	
+			<select>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
 		<section>Album:</section>
-			<div class="dropdown2">
-				<button class="dropbtn2">Option</button>
-				<div class="dropdown-content2">
-					<a>1</a>
-					<a>2</a>
-					<a>3</a>
-				</div>
-			</div>
+			<select>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
 		<section>Genre:</section>
-		
 				<ul class="checkbox-grid">
 					<li><input type="checkbox" name="Rock" value="">Rock</li>
 					<li><input type="checkbox" name="Jazz" value="">Jazz</li>
@@ -58,42 +51,29 @@
 		<button class="filter-btn" type="#">Filter</button>
 	</article>
 
-	<article class="song-info">
-		<section>
-			<h2 class="song-name">Song Title</h2>
-				<ul class="songs">
-					<li>Artist Name</li>
-					<li>Album Name</li>
-					<li>Genre</li>
-				</ul>
-		</section>
-		<section>
-			<h2 class="song-name">Song Title</h2>
-				<ul class="songs">
-					<li>Artist Name</li>
-					<li>Album Name</li>
-					<li>Genre</li>
-				</ul>
-		</section>
-		<section>
-			<h2 class="song-name">Song Title</h2>
-				<ul class="songs">
-					<li>Artist Name</li>
-					<li>Album Name</li>
-					<li>Genre</li>
-				</ul>
-		</section>
-		<section>
-			<h2 class="song-name">Song Title</h2>
-				<ul class="songs">
-					<li>Artist Name</li>
-					<li>Album Name</li>
-					<li>Genre</li>
-				</ul>
-		</section>
+	<article id="songsPlay" class="song-info">
 
 	</article>
 
+</div>
+
+<section class="hidden" id="add-view">
+  <article>
+		<ul class="amUL">
+			<li>Song Name : <input type="text" id="enteredSong" value="" placeholder=""> </li>
+			<li>Artist : <input type="text" id="enteredArtist" value="" placeholder=""></li>
+			<li>Album : <input type="text" id="enteredAlbum" value="" placeholder=""></li>
+			<li><button id="addSongButton" type="submit">Add Music</button></li>
+		</ul>
+	</article>
+</section>
+
+
+<script type="text/javascript" src="list.js"></script>
+<script type="text/javascript" src="home.js"></script>
+
+<script type="text/javascript" src="add.js"></script>
+<script type="text/javascript" src="songs.js"></script>
 
 </body>
 </html>
