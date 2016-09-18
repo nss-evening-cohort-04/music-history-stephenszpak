@@ -24,19 +24,31 @@ var songs = [{
 	album : "Jagged Little Pill"
 }];
 
-var songInfo = ""
+
+var addSong = document.getElementById('addSongButton');
+
 var outputSong = document.getElementById('songsPlay');
 
-for (var i = 0; i < songs.length; i++) {
+function songText (e) {
+	var songInfo = "";
+	for (var i = 0; i < songs.length; i++) {
 		var fullSong = songs[i]
 
 		songInfo += "<article>";
 			songInfo += "<section>";
-			 	songInfo += "<div class='songs'>" + fullSong.song + " by " + fullSong.artist + " on the album " + fullSong.album + "</div>";
+			 	songInfo += "<div class='song-name'>" + fullSong.song + " by " + fullSong.artist + " on the album " + fullSong.album + "</div>";
 			songInfo += "</section>";
 		songInfo += "</article>";
 
 		outputSong.innerHTML = songInfo
 	};
+};
 
-console.log(songs)
+addSong.addEventListener("click", function () {
+	var userSubmitSong = document.getElementById('enteredSong');
+	var userSubmitAlbum = document.getElementById('enteredAlbum');
+	var userSubmitArtist = document.getElementById('enteredArtist');
+	var newSong = songs.push({song : userSubmitSong.value, artist : userSubmitArtist.value, album : userSubmitAlbum.value});
+
+	songText(newSong)	
+});
