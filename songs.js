@@ -1,54 +1,56 @@
-var songs = [{
-	song :"Legs",
-	artist : "ZZ Top",
-	album : "Eliminator"
-},
-{
-	song : "The Logical Song",
-	artist : "Supertramp",
-	album : "Breakfast in America"
-},
-{
-	song : "Another Brick in the Wall",
-	artist : "Pink Floyd",
-	album : "The Wall"
-},
-{
-	song : "Welcome to the Jungle",
-	artist : "Guns & Roses",
-	album : "Appetite for Destruction"
-},
-{
-	song : "Ironic",
-	artist : "Alanis Morisette",
-	album : "Jagged Little Pill"
-}];
 
+$(document).ready(function() {
 
-var addSong = document.getElementById('addSongButton');
+	let $showTitle = $("#songsPlay");
+	let $showMore = $("#moreSongs");
+	let userSubmitSong = $("#enteredSong");
+	let userSubmitArtist = $("#enteredArtist");
+	let userSubmitAlbum = $("#enteredAlbum");
+	
+	//load XHR JSON
+	$.ajax({
+		url: "songs.json"
+	}).done(getSongs);
 
-var outputSong = document.getElementById('songsPlay');
+	$.ajax({
+		url: "moreSongs.json"
+	}).done(addMoreSongs);
 
-function songText (e) {
-	var songInfo = "";
-	for (var i = 0; i < songs.length; i++) {
-		var fullSong = songs[i]
+	// Toggle the "more songs" button
+	let $toggle = $("#toggle");
+	$toggle.click(function () {
+		$showMore.toggle();  			
+	});
 
-		songInfo += "<article>";
-			songInfo += "<section>";
-			 	songInfo += "<div class='song-name'>" + fullSong.song + " by " + fullSong.artist + " on the album " + fullSong.album + "</div>";
-			songInfo += "</section>";
-		songInfo += "</article>";
+	//User Add Song Event
+	$("#addSongButton").click(function(userInput, yello, mello) {
+		let newSong = userSubmitSong.val();
+		let newArtist = userSubmitArtist.val();
+		let newAlbum = userSubmitAlbum.val()
 
-		outputSong.innerHTML = songInfo
+		$showTitle.append(`<div> ${newSong} by ${newArtist} on the album ${newAlbum} </div>`);
+	});
+
+	//Getting songs from Json
+	function getSongs(songData) { 
+		console.log("SongDataObj", songData);
+		let songs = songData.songs;
+
+    	$.each(songs, (key, song) => {
+      		$showTitle.append(`<div>${song.song} by ${song.artist} on the album ${song.album}</div>`);
+    	});
 	};
-};
 
-addSong.addEventListener("click", function () {
-	var userSubmitSong = document.getElementById('enteredSong');
-	var userSubmitAlbum = document.getElementById('enteredAlbum');
-	var userSubmitArtist = document.getElementById('enteredArtist');
-	var newSong = songs.push({song : userSubmitSong.value, artist : userSubmitArtist.value, album : userSubmitAlbum.value});
+	//Getting More Songs from Json
+	function addMoreSongs(moreSongs) {
+		let getMoreSongs = moreSongs.songs;
+		$.each(getMoreSongs, (key, song) => {
+			$showMore.append(`<div>${song.song} by ${song.artist} on the album ${song.album}</div>`);
+		});
+	};
 
-	songText(newSong)	
 });
+
+
+
+
